@@ -2,6 +2,10 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## 语言要求
+
+- 全程使用中文进行对话和代码注释（变量名、函数名、专有名词、API 名称等特殊英文除外）
+
 # 中央财经大学宣传信息图项目
 
 ## 项目概述

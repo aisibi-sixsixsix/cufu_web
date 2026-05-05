@@ -1,7 +1,8 @@
 {
   "permissions": {
     "allow": [
-      "Bash(python -m http.server 3001)"
+      "Bash(python -m http.server 3001)",
+      "Bash(/bin/sh -c \"ls -la /workspace/.gitignore 2>/dev/null; cat /workspace/.gitignore 2>/dev/null || echo 'No .gitignore found'\")"
     ]
   }
 }
