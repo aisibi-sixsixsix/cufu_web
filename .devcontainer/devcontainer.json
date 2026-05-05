@@ -1,0 +1,32 @@
+{
+    "name": "cufu-web_test",
+    "build": {
+        "dockerfile": "Dockerfile"
+    },
+    // 关键：把宿主机项目文件夹挂载到容器内的 /workspace
+    "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind",
+    "workspaceFolder": "/workspace",
+    
+    "forwardPorts": [3001],
+    "remoteEnv": {
+        "ANTHROPIC_BASE_URL": "https://api.deepseek.com/anthropic",
+        "ANTHROPIC_AUTH_TOKEN": "sk-eee9f4dae0634966822f6489494f327e",
+        "ANTHROPIC_MODEL": "deepseek-v4-flash"
+    },
+    // 容器首次创建后执行（此时项目已挂载）
+    "postCreateCommand": "npm install",
+    // 每次容器启动后自动开启 nodemon 服务
+    "postStartCommand": "nodemon server.js",
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "files.autoSave": "onFocusChange"
+            },
+            "extensions": [
+                "dbaeumer.vscode-eslint",
+                "esbenp.prettier-vscode",
+                "anthropic.claude-code"
+            ]
+        }
+    }
+}
